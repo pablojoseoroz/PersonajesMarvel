@@ -58,9 +58,12 @@ Se han utilizado las siguientes librerías:
 
 ## Demo
 
+https://github.com/pablojoseoroz/PersonajesMarvel/blob/bf4e50aadfca04230ddb695475550bc80c3a78d8/captures/video.mp4
+
 El funcionamiento básico de la app es el siguiente:
 - Durante 1 seg se muestra la pantalla de carga indicando el copyright del contenido
 - Después navega al listado de personajes Marvel, donde se puede modificar meediante un botón en la Toolbar el modo en que se visualizan, de forma linear o en forma de grid de 3 columnas, dependinedo el modo se utiliza una vista u otra.
+- Se ha optado por una paginación simple en donde se detecta al scrollear la lista cuanto falta para llegar al final, en cuyo caso manda cargar otros tanto personajes.
 - Para cada personaje se muestra su foto, su nombre y la cantidad de cómics, series,  historias y eventos en los que ha participado.
 - Se utiliza Palette para extraer de la imagen su color principal y aplicarlo al borde de la card del item, así como a los chips donde se muestra las cantidades.
 - Se cargan a su vez los personajes favoritos que estén alojados en la base de datos de Room, y en caso de que un personaje sea favorito se muestra un corazón en su item.
