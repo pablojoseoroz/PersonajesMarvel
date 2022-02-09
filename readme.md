@@ -58,8 +58,6 @@ Se han utilizado las siguientes librerías:
 
 ## Demo
 
-https://github.com/pablojoseoroz/PersonajesMarvel/blob/bf4e50aadfca04230ddb695475550bc80c3a78d8/captures/video.mp4
-
 El funcionamiento básico de la app es el siguiente:
 - Durante 1 seg se muestra la pantalla de carga indicando el copyright del contenido
 - Después navega al listado de personajes Marvel, donde se puede modificar meediante un botón en la Toolbar el modo en que se visualizan, de forma linear o en forma de grid de 3 columnas, dependinedo el modo se utiliza una vista u otra.
@@ -71,7 +69,7 @@ El funcionamiento básico de la app es el siguiente:
 - En la pantalla de detalle, existen las acciones de hacer o deshacer un personaje como favorito, lo cual enviará un evento al listado para que se actualice utilizado Payload.
 - En caso de compartirse un favorito, se descarga su imagen utilizando Glide y se lanza el Intent correspondiente para compartir dicha imagen.
 
-<iframe src='//gifs.com/embed/aaa-EqWkDm' frameborder='0' scrolling='no' width='1080px' height='2220px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+(https://j.gifs.com/EqWkDm.gif)
 
 ## Authors
 
