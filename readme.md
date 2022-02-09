@@ -69,7 +69,7 @@ El funcionamiento básico de la app es el siguiente:
 - En la pantalla de detalle, existen las acciones de hacer o deshacer un personaje como favorito, lo cual enviará un evento al listado para que se actualice utilizado Payload.
 - En caso de compartirse un favorito, se descarga su imagen utilizando Glide y se lanza el Intent correspondiente para compartir dicha imagen.
 
-![](https://j.gifs.com/EqWkDm.gif)
+![Vídeo](https://gifs.com/gif/aaa-EqWkDm)
 
 ## Authors
 
