@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Http request connection time out: in seconds -->
+    <integer name="marvel_http_request_connection_time_out">30</integer>
+
+    <!-- Http request read time out: in seconds -->
+    <integer name="marvel_http_request_read_time_out">30</integer>
+
+    <!-- Http request write time out: in seconds -->
+    <integer name="marvel_http_request_write_time_out">120</integer>
+
+    <!-- Cache enabled -->
+    <bool name="marvel_cache_enabled">true</bool>
+
+    <!-- Http cache size: in Megabytes-->
+    <integer name="marvel_http_cache">10</integer>
+
+    <!-- cache when no internet: in minutes-->
+    <integer name="marvel_max_stale">1</integer>
+
+    <!-- cache when internet: in minutes -->
+    <integer name="marvel_max_age">60</integer>
+
+</resources>

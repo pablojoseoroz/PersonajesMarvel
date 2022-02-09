@@ -1,0 +1,11 @@
+<resources>
+    <string name="copyright">Copyright\nData provided by Marvel. © 2022 MARVEL\nhttp://marvel.com</string>
+    <string name="mode">Mode</string>
+    <string name="comics">Cómics</string>
+    <string name="eventos">Eventos</string>
+    <string name="historias">Historias</string>
+    <string name="series">Series</string>
+    <string name="favorite">Favorite</string>
+    <string name="compartir">Compartir</string>
+    <string name="sin_descripcion">Sin descripción</string>
+</resources>

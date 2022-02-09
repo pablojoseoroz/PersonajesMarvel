@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com/\"")
+        }
+        release {
+            buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com/\"")
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.6.0'
+
+    // GSON -> Apache License -> Licencia añadida
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    // RETROFIT -> Apache License -> Licencia añadida
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.12.3"
+
+    // TIMBER
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // CLIENTE OKHTTP
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+
+    // OKHTTP PROFILER
+    implementation 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.7'
+
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.paging:paging-common-ktx:3.1.0'
+
+    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
+}
