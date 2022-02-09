@@ -31,11 +31,16 @@ Implementadas la siguientes llamadas y sus correspondientes respuestas
 
 ## Documentation
 
-Se ha dividido la aplicación en modulos:
-- app: contiene la aplicación de Marvel
-- marvelapi: módulo encargado de las conexiones con la API de marvel
-- navigation: módulo customizado de navegación
-- uibase: módulo base para la interfaz
+La aplicación está escrita en lenguaje Kotlin y utiliza la arquitectura MVVM.
+
+Se ha dividido la aplicación en módulos:
+- marvelapi: módulo encargado de las conexiones con la API de marvel. Utiliza para ello OkHttp + Retrofit. Se ha optado por un interceptor para añadir las queries correspondientes a la identificación del usuario.
+- navigation: módulo customizado de navegación para que mantenga el fragment anterior en la pila y no resuma al volver atrás.
+- uibase: módulo base para la interfaz. Contiene clases base para facilitar la implementación de las pantallas y no tener que reescribir código.
+
+Existen dos ViewModel encargados de la lógica y los casos de uso, uno para comunicarse con la API de Marvel [MarvelViewModel](https://github.com/pablojoseoroz/PersonajesMarvel/blob/ecab42fd324d75507b0d06751a1e56d6ba71ec25/marvelapi/src/main/java/com/pablojoseoroz/marvelapi/MarvelViewModel.kt) y el otro para encargarse de los favoritos [FavoriteViewModel](https://github.com/pablojoseoroz/PersonajesMarvel/blob/ecab42fd324d75507b0d06751a1e56d6ba71ec25/app/src/main/java/com/pablojoseoroz/marvel/ui/detail/FavoriteViewModel.kt).
+
+La aplicación contiene una única Activity la cual tiene asociada un NavHostFragment. A su vez ésta contiene la única Toolbar que es controlada por NavigationUI.
 
 Se han utilizado las siguientes librerías:
 - Timber: para facilitar los logs
@@ -47,6 +52,7 @@ Se han utilizado las siguientes librerías:
 - OkHttp: para realizar las llamadas web
 - OkHttpProfiler: para ver las llamadas hechas en la API en tiempo de desarrollo
 - Navigation: para la navegación entre pantallas
+
 
 
 
