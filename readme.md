@@ -22,29 +22,37 @@ Implementadas la siguientes llamadas y sus correspondientes respuestas
 ```
 
 ## Screenshots
-
-![Splash](https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/splash.png)
-![List](https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/home.png)
-![Detail](https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/detail.png)
+<p float="left">
+  <img src="https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/splash.png" width="33%" />
+  <img src="https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/home.png" width="33%" /> 
+  <img src="https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/detail.png" width="33%" />
+</p>
 
 
 ## Documentation
 
-Se ha dividido la aplicación en modulos:
-- app: contiene la aplicación de Marvel
-- marvelapi: módulo encargado de las conexiones con la API de marvel
-- navigation: módulo customizado de navegación
-- uibase: módulo base para la interfaz
+La aplicación está escrita en lenguaje Kotlin y utiliza la arquitectura MVVM.
+
+Se ha dividido la aplicación en módulos:
+- marvelapi: módulo encargado de las conexiones con la API de marvel. Utiliza para ello OkHttp + Retrofit. Se ha optado por un interceptor para añadir las queries correspondientes a la identificación del usuario.
+- navigation: módulo customizado de navegación para que mantenga el fragment anterior en la pila y no resuma al volver atrás.
+- uibase: módulo base para la interfaz. Contiene clases base para facilitar la implementación de las pantallas y no tener que reescribir código.
+
+Existen dos ViewModel encargados de la lógica y los casos de uso, uno para comunicarse con la API de Marvel [MarvelViewModel](https://github.com/pablojoseoroz/PersonajesMarvel/blob/ecab42fd324d75507b0d06751a1e56d6ba71ec25/marvelapi/src/main/java/com/pablojoseoroz/marvelapi/MarvelViewModel.kt) y el otro para encargarse de los favoritos [FavoriteViewModel](https://github.com/pablojoseoroz/PersonajesMarvel/blob/ecab42fd324d75507b0d06751a1e56d6ba71ec25/app/src/main/java/com/pablojoseoroz/marvel/ui/detail/FavoriteViewModel.kt).
+
+La aplicación contiene una única [Activity](https://github.com/pablojoseoroz/PersonajesMarvel/blob/6da38ae46fcda3e4cb880842e49e647a0e0cddf1/app/src/main/java/com/pablojoseoroz/marvel/ui/MainActivity.kt) la cual tiene asociada un NavHostFragment. A su vez ésta contiene la única Toolbar que es controlada por NavigationUI.
 
 Se han utilizado las siguientes librerías:
-- Timber: para facilitar los logs
-- Glide: para facilitar el mostrado de imágenes
-- EventBus: para enviar eventos entre pantallas
-- Room: para crear la base de datos local donde guardar los favoritos
-- Palette: para obtener los colores principales de una imagen y colorear con ellos otras vistas dinámicamente
-- Retrofit: para facilitar la implementación de la API de Marvel
-- OkHttpProfiler: para ver las llamadas hechas en la API en tiempo de desarrollo
-- Navigation: para la navegación entre pantallas
+- [Timber](https://github.com/JakeWharton/timber): para facilitar los logs
+- [Glide](https://github.com/bumptech/glide): para facilitar el mostrado de imágenes; está customizado para que use el cliente OkHttp y diferentes configuraciones.
+- [EventBus](https://github.com/greenrobot/EventBus): para enviar eventos entre pantallas; en este caso se ha utilizado para facilitar la sincronización de favoritos.
+- [Room](https://developer.android.com/training/data-storage/room): para crear la base de datos local donde guardar los favoritos
+- [Palette](https://developer.android.com/training/material/palette-colors): para obtener los colores principales de una imagen y colorear con ellos otras vistas dinámicamente
+- [Retrofit](https://github.com/square/retrofit): para facilitar la implementación de la API de Marvel
+- [OkHttp](https://github.com/square/okhttp): para realizar las llamadas web
+- [OkHttpProfiler](https://github.com/itkacher/OkHttpProfiler): para ver las llamadas hechas en la API en tiempo de desarrollo
+- [Navigation](https://developer.android.com/guide/navigation): para la navegación entre pantallas
+
 
 
 
@@ -53,6 +61,7 @@ Se han utilizado las siguientes librerías:
 El funcionamiento básico de la app es el siguiente:
 - Durante 1 seg se muestra la pantalla de carga indicando el copyright del contenido
 - Después navega al listado de personajes Marvel, donde se puede modificar meediante un botón en la Toolbar el modo en que se visualizan, de forma linear o en forma de grid de 3 columnas, dependinedo el modo se utiliza una vista u otra.
+- Se ha optado por una paginación simple en donde se detecta al scrollear la lista cuanto falta para llegar al final, en cuyo caso manda cargar otros tanto personajes.
 - Para cada personaje se muestra su foto, su nombre y la cantidad de cómics, series,  historias y eventos en los que ha participado.
 - Se utiliza Palette para extraer de la imagen su color principal y aplicarlo al borde de la card del item, así como a los chips donde se muestra las cantidades.
 - Se cargan a su vez los personajes favoritos que estén alojados en la base de datos de Room, y en caso de que un personaje sea favorito se muestra un corazón en su item.
@@ -60,6 +69,7 @@ El funcionamiento básico de la app es el siguiente:
 - En la pantalla de detalle, existen las acciones de hacer o deshacer un personaje como favorito, lo cual enviará un evento al listado para que se actualice utilizado Payload.
 - En caso de compartirse un favorito, se descarga su imagen utilizando Glide y se lanza el Intent correspondiente para compartir dicha imagen.
 
+[Vídeo](https://j.gifs.com/EqWkDm.gif)
 
 ## Authors
 
