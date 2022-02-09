@@ -43,6 +43,7 @@ Se han utilizado las siguientes librerías:
 - Room: para crear la base de datos local donde guardar los favoritos
 - Palette: para obtener los colores principales de una imagen y colorear con ellos otras vistas dinámicamente
 - Retrofit: para facilitar la implementación de la API de Marvel
+- OkHttp: para realizar las llamadas web
 - OkHttpProfiler: para ver las llamadas hechas en la API en tiempo de desarrollo
 - Navigation: para la navegación entre pantallas
 
