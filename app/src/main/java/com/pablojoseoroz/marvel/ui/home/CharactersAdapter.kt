@@ -145,17 +145,11 @@ class CharactersAdapter(val mListener: (Character) -> Unit) :
                     ): Boolean {
                         if (resource != null) {
                             if (mPaletteCache.containsKey(url)) {
-                                binding.root.setStrokeColor(
-                                    ColorStateList.valueOf(
-                                        mPaletteCache.get(
-                                            url
-                                        )!!
-                                    )
-                                )
+                                val color = ColorStateList.valueOf(mPaletteCache.get(url)!!)
+                                binding.root.setStrokeColor(color)
+                                binding.tvName.setTextColor(color)
                                 binding.chips.children.forEach {
-                                    (it as Chip).setChipBackgroundColor(
-                                        ColorStateList.valueOf(mPaletteCache.get(url)!!)
-                                    )
+                                    (it as Chip).setChipBackgroundColor(color)
                                 }
                             } else {
                                 // Asynchronous
@@ -165,11 +159,11 @@ class CharactersAdapter(val mListener: (Character) -> Unit) :
                                         try {
                                             val swatch = p!!.darkVibrantSwatch
                                             mPaletteCache.put(url, swatch!!.rgb)
-                                            binding.root.setStrokeColor(swatch.rgb)
+                                            val color = ColorStateList.valueOf(swatch.rgb)
+                                            binding.root.setStrokeColor(color)
+                                            binding.tvName.setTextColor(color)
                                             binding.chips.children.forEach {
-                                                (it as Chip).setChipBackgroundColor(
-                                                    ColorStateList.valueOf(swatch.rgb)
-                                                )
+                                                (it as Chip).setChipBackgroundColor(color)
                                             }
                                         } catch (e: Exception) {
                                         }
