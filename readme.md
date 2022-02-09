@@ -27,9 +27,6 @@ Implementadas la siguientes llamadas y sus correspondientes respuestas
   <img src="https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/home.png" width="33%" /> 
   <img src="https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/detail.png" width="33%" />
 </p>
-![Splash](https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/splash.png)
-![List](https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/home.png)
-![Detail](https://github.com/pablojoseoroz/PersonajesMarvel/blob/32092a91811b2ea920ed963c15a2ecc0dd78fcbf/captures/detail.png)
 
 
 ## Documentation
